@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Index_Libri.Server.props" />
+</Project>
