@@ -27,7 +27,7 @@ builder.Services.AddSwaggerGen();
 // Add CORS services
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowSpecificOrigin",
+    options.AddPolicy("Frontend",
         builder =>
         {
             builder.WithOrigins("https://localhost:5173")
@@ -39,8 +39,8 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Use CORS with the "AllowSpecificOrigin" policy
-app.UseCors("AllowSpecificOrigin");
+// Use CORS with the "Frontend" policy
+app.UseCors("Frontend");
 
 app.UseDefaultFiles();
 app.UseStaticFiles();

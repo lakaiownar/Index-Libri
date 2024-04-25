@@ -44,6 +44,7 @@ function ScriptLogin() {
 
                 google.accounts.id.initialize({
                     client_id: response.data.clientID,
+                    // does the scope works? It doesnt look like it does.
                     scope: "https://www.googleapis.com/auth/books",
                     callback: handleCallbackResponse
                 })
