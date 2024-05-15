@@ -113,5 +113,50 @@ namespace Index_Libri.Server.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
+        // Update a book from the list
+        [HttpPut("/booklist/update")]
+        public async Task<IActionResult> UpdateBook([FromQuery] string email, [FromQuery] string isbn, [FromBody] Book updatedBook)
+        {
+            try
+            {
+                // Retrieve the BookList for the user with the given email
+                var bookList = await _context.BookList
+                    .Include(b => b.Books)
+                    .Where(b => b.UserEmail == email)
+                    .FirstOrDefaultAsync();
+
+                // If the BookList does not exist, return a 404 Not Found
+                if (bookList == null)
+                {
+                    return NotFound();
+                }
+
+                // Retrieve the book with the given ISBN
+                var book = bookList.Books
+                    .Where(b => b.ISBN == isbn)
+                    .FirstOrDefault();
+
+                // If the book does not exist, return a 404 Not Found
+                if (book == null)
+                {
+                    return NotFound();
+                }
+
+                // Update the book's properties
+                book.Title = updatedBook.Title;
+                book.Author = updatedBook.Author;
+                // Continue for all properties of the Book
+
+                // Save the changes to the database
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error");
+            }
+        }
     }
 }

@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Index_Libri.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9dde2aa8d013f90c20d31bad2660f451e2c51827")]
 [assembly: System.Reflection.AssemblyProductAttribute("Index_Libri.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Index_Libri.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

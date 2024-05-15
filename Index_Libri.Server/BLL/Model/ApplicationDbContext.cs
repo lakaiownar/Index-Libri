@@ -43,9 +43,11 @@ namespace Index_Libri.Server.BLL.Model
             {
                 entity.HasKey(e => e.ISBN);
                 entity.Property(e => e.ISBN);
+                entity.Property(e => e.Title);
                 entity.Property(e => e.Author);
                 entity.Property(e => e.Pages);
                 entity.Property(e => e.Rating);
+                entity.Property(e => e.BookCover);
             });
         }
     }

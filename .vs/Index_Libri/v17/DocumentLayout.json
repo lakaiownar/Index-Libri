@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\cynth\\source\\repos\\Index_Libri\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{51101E19-F2EE-496A-97C7-1D7FE4E53FDD}|Index_Libri.Server\\Index_Libri.Server.csproj|c:\\users\\cynth\\source\\repos\\index_libri\\index_libri.server\\controllers\\booklistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51101E19-F2EE-496A-97C7-1D7FE4E53FDD}|Index_Libri.Server\\Index_Libri.Server.csproj|solutionrelative:index_libri.server\\controllers\\booklistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +14,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BookListController.cs",
+              "DocumentMoniker": "C:\\Users\\cynth\\source\\repos\\Index_Libri\\Index_Libri.Server\\Controllers\\BookListController.cs",
+              "RelativeDocumentMoniker": "Index_Libri.Server\\Controllers\\BookListController.cs",
+              "ToolTip": "C:\\Users\\cynth\\source\\repos\\Index_Libri\\Index_Libri.Server\\Controllers\\BookListController.cs",
+              "RelativeToolTip": "Index_Libri.Server\\Controllers\\BookListController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHUAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T21:08:05.248Z",
+              "EditorCaption": ""
             }
           ]
         }

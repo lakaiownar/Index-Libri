@@ -1,0 +1,13 @@
+.booksContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 80px;
+}
+
+.book {
+    flex: 1 0 21%; /* grow, shrink, basis */
+    margin: 1%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 10px;
+}

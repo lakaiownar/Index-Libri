@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1VtbTAFQS9F48M1thQhqWW3B3dNlJTCSY5lN0BYm1g2R7Tb0hwtH6ACN84bpeYj47gLMIQ5V5sWQdFZXtfm9Gg==",
+  "dgSpecHash": "FV3NDRhlUbVjl6wdE7Yx4HbjICcsLAE6NFbSiERrJNaa0KqZoXjqpM6zC7+y1KcHk0DHTbEEo9Rrbd2zY0UgcA==",
   "success": true,
   "projectFilePath": "C:\\Users\\cynth\\source\\repos\\Index_Libri\\Index_Libri.Server\\Index_Libri.Server.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,7 @@
     "C:\\Users\\cynth\\.nuget\\packages\\google.apis.core\\1.67.0\\google.apis.core.1.67.0.nupkg.sha512",
     "C:\\Users\\cynth\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\cynth\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\8.0.4\\microsoft.aspnetcore.authentication.google.8.0.4.nupkg.sha512",
-    "C:\\Users\\cynth\\.nuget\\packages\\microsoft.aspnetcore.spaproxy\\8.0.4\\microsoft.aspnetcore.spaproxy.8.0.4.nupkg.sha512",
+    "C:\\Users\\cynth\\.nuget\\packages\\microsoft.aspnetcore.spaproxy\\8.0.5\\microsoft.aspnetcore.spaproxy.8.0.5.nupkg.sha512",
     "C:\\Users\\cynth\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\cynth\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
     "C:\\Users\\cynth\\.nuget\\packages\\microsoft.codeanalysis.common\\4.5.0\\microsoft.codeanalysis.common.4.5.0.nupkg.sha512",

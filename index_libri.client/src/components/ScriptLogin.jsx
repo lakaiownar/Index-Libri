@@ -2,18 +2,24 @@ import './ScriptLogin.css'
 import { useEffect, useState } from 'react';
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../contexts/AuthContext';
 import axios from 'axios';
 
 function ScriptLogin() {
     const google = window.google;
     const [clientId, setClientId] = useState('');
     const navigate = useNavigate();
+    const { logIn } = useContext(AuthContext);
 
     const handleCallbackResponse = (response) => {
         // Early stage debugging to see how it worked
         console.log('Encoded JWT ID token: ' + response.credential);
         const decodedToken = jwtDecode(response.credential);
         console.log(decodedToken);
+
+        // Update isAuthenticated state
+        logIn();
 
         // Create an ApplicationUser
         const user = {
