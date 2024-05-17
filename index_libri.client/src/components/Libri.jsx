@@ -36,7 +36,7 @@ const Libri = () => {
         // Make API call to ASP.NET backend to get the booklist for the user
         axios.get('https://localhost:7169/booklist', { headers: { email: userEmail } })
             .then(response => {
-                const books = response.data.books.map(book => new Book(book.isbn, book.title, book.author, book.pages, book.rating, book.bookCover));
+                const books = response.data.books.map(book => new Book(book.isbn, book.googleid, book.title, book.author, book.pages, book.rating, book.bookCover, book.status));
                 setBooks(books);
             })
             .catch(error => {
@@ -48,7 +48,7 @@ const Libri = () => {
         <div>
             {/* Render authenticated user's view components */}
             <button className="logout-button" onClick={handleLogout}>Logout</button>
-            <BookList books={books} />
+            <BookList books={books} setBooks={setBooks} />
         </div>
     );
 };

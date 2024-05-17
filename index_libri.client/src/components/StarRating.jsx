@@ -4,7 +4,6 @@ import './StarRating.css';
 
 const StarRating = ({ rating, onRatingChange }) => {
     const [hoverRating, setHoverRating] = useState(0);
-    const DEFAULT_RATING = 0;
     const DEFAULT_ICON = '★';
 
     const handleMouseEnter = (index) => {
@@ -16,6 +15,7 @@ const StarRating = ({ rating, onRatingChange }) => {
     };
 
     const handleClick = (index) => {
+        console.log('Star clicked:', index);
         onRatingChange(index);
     };
 
@@ -34,7 +34,7 @@ const StarRating = ({ rating, onRatingChange }) => {
                     onMouseLeave={handleMouseLeave}
                     onClick={() => handleClick(index)}
                 >
-                    {DEFAULT_ICON} {/* Add this line */}
+                    {DEFAULT_ICON}
                 </i>
             ))}
         </div>

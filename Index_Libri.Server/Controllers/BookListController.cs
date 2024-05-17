@@ -1,18 +1,20 @@
 ﻿using Index_Libri.Server.BLL.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
+using System.Net.Http;
 
 namespace Index_Libri.Server.Controllers
 {
-    [ApiController]
-    [Route("libri/[controller]")]
     public class BookListController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly HttpClient _httpClient;
 
         public BookListController(ApplicationDbContext context)
         {
             _context = context;
+            _httpClient = new HttpClient();
         }
 
         [HttpGet("/booklist")]
@@ -72,7 +74,7 @@ namespace Index_Libri.Server.Controllers
         }
 
         // Remove book from list
-        [HttpDelete("/booklist/remove")]
+        [HttpDelete("/booklist/delete")]
         public async Task<IActionResult> RemoveBook([FromQuery] string email, [FromQuery] string isbn)
         {
             try
@@ -144,11 +146,11 @@ namespace Index_Libri.Server.Controllers
                 }
 
                 // Update the book's properties
-                book.Title = updatedBook.Title;
-                book.Author = updatedBook.Author;
-                // Continue for all properties of the Book
+                book.Pages = updatedBook.Pages;
+                book.Rating = updatedBook.Rating;
+                book.Status = updatedBook.Status;
 
-                // Save the changes to the database
+                // Save the changes to the databa
                 await _context.SaveChangesAsync();
 
                 return Ok();
@@ -157,6 +159,54 @@ namespace Index_Libri.Server.Controllers
             {
                 return StatusCode(500, "Internal server error");
             }
+        }
+
+        [HttpGet("/booklist/recommendations")]
+        public async Task<IActionResult> GetRecommendations([FromQuery] string email)
+        {
+            // Find the user's highest-rated book
+            var highestRatedBook = await _context.BookList
+                .Where(bl => bl.UserEmail == email)
+                .SelectMany(bl => bl.Books)
+                .OrderByDescending(b => b.Rating)
+                .FirstOrDefaultAsync();
+
+            if (highestRatedBook == null)
+            {
+                return NotFound("No books found for this user.");
+            }
+
+            // Fetch recommendations from Google Books API
+            var url = $"https://www.googleapis.com/books/v1/volumes/{highestRatedBook.GoogleId}/associated";
+            var response = await _httpClient.GetAsync(url);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return StatusCode((int)response.StatusCode, "Error fetching recommendations from Google Books API.");
+            }
+
+            var json = await response.Content.ReadAsStringAsync();
+            var recommendations = JObject.Parse(json)["items"].ToObject<List<Book>>();
+
+            return Ok(recommendations);
+        }
+
+        [HttpGet("/booklist/favouritebook")]
+        public async Task<IActionResult> FetchHighRatedBook([FromQuery] string email)
+        {
+            // Find the user's highest-rated book
+            var highestRatedBook = await _context.BookList
+                .Where(bl => bl.UserEmail == email)
+                .SelectMany(bl => bl.Books)
+                .OrderByDescending(b => b.Rating)
+                .FirstOrDefaultAsync();
+
+            if (highestRatedBook == null)
+            {
+                return NotFound("No books found for this user.");
+            }
+
+            return Ok(highestRatedBook);
         }
     }
 }
